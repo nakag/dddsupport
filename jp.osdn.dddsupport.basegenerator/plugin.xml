@@ -54,5 +54,14 @@
             commandId="jp.osdn.dddsupport.basegenerator.baseClassCreateCommand">
       </handler>
    </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="jp.osdn.dddsupport.basegenerator.baseClassCreateCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M2+M3+F8">
+      </key>
+   </extension>
 
 </plugin>

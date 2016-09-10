@@ -20,6 +20,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 import jp.osdn.dddsupport.basegenerator.model.AbstractClass;
 import jp.osdn.dddsupport.basegenerator.model.BaseClass;
+import jp.osdn.dddsupport.basegenerator.model.BaseClassModifier;
 import jp.osdn.dddsupport.basegenerator.model.ClassName;
 import jp.osdn.dddsupport.basegenerator.model.PackageName;
 import jp.osdn.dddsupport.basegenerator.model.Workspace;
@@ -36,13 +37,13 @@ public class WorkspaceImpl implements Workspace {
 	public BaseClass getSelectedBaseClass() {
 		PackageName packageName = new PackageName(baseClassPackageInWorkspace.getElementName());
 		ClassName className = new ClassName(baseClassInWorkspace.getElementName());
-		return new BaseClass(packageName, className);
+		BaseClassModifier modifier = new BaseClassModifierImpl(baseClassInWorkspace);
+		return new BaseClass(packageName, className, modifier);
 	}
 
 	private ICompilationUnit getUnit(ExecutionEvent event) {
 		ICompilationUnit unit = null;
 		ISelection selection = HandlerUtil.getCurrentSelection(event);
-
 		if (selection instanceof IStructuredSelection) {
 			IStructuredSelection selectionFromExplorer = (IStructuredSelection) selection;
 			unit = (ICompilationUnit) selectionFromExplorer.getFirstElement();

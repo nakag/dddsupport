@@ -26,7 +26,7 @@ public class BaseClassGenerateCommandHandler extends AbstractHandler {
 		BaseClass baseClass = workspace.getSelectedBaseClass();
 		SummaryClass summaryClass = baseClass.toSummaryClass();
 		FirstClassCollectionClass collection = baseClass.toFirstClassCollectionClass();
-		IdentityClass identityClass = baseClass.toIdentityClass();
+		IdentityClass identityClass = baseClass.createIdentityClass();
 		DetailClass detailClass = baseClass.toDetailClass();
 		RepositoryInterface repositoryInterface = baseClass.toRepositoryInterface();
 		TypeEnum typeEnum = baseClass.toTypeEnum();

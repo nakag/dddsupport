@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="jp.osdn.dddsupport.plugin.feature"
+      label="DDD Support Plugin Feature"
+      version="0.2.0.qualifier"
+      plugin="jp.osdn.dddsupport.plugin">
+
+   <description url="https://osdn.jp/projects/dddsupport/simple/">
+      DDD Support Plugin.
+   </description>
+
+   <copyright url="https://osdn.jp/projects/dddsupport/simple/">
+      DDD Support Plugin.
+   </copyright>
+
+   <license url="http://www.apache.org/licenses/LICENSE-2.0">
+      Apache License Version 2.0
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.jdt.ui"/>
+   </requires>
+
+   <plugin
+         id="jp.osdn.dddsupport.basegenerator"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="jp.osdn.dddsupport.plugin"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

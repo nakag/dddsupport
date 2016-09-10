@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/jp.osdn.dddsupport.plugin.feature_0.2.0.qualifier.jar" id="jp.osdn.dddsupport.plugin.feature" version="0.2.0.qualifier">
+      <category name="jp.osdn.dddsupport"></category>
+   </feature>
+   <category-def name="jp.osdn.dddsupport" label="DDD Support Plugin">
+      <description>
+         DDD Support Plugin.
+      </description>
+   </category-def>
+</site>

@@ -3,15 +3,19 @@ package jp.osdn.dddsupport.basegenerator.model;
 public class BaseClass extends AbstractClass {
 	private Field identityField;
 	private Field detailField;
-
-	public BaseClass(PackageName packageName, ClassName className) {
+	public BaseClass(PackageName packageName, ClassName className, BaseClassModifier modifier) {
 		super(packageName, className);
-		this.identityField = toIdentityClass().toField();
+		this.identityField = createIdentityClass().toField();
 		this.detailField = toDetailClass().toField();
+		modifier.addField(identityField);
+		modifier.addField(detailField);
+
 	}
 
-	public IdentityClass toIdentityClass() {
-		return new IdentityClass(packageName, className.appendClassName("Identity"));
+	public IdentityClass createIdentityClass() {
+		IdentityClass id =new IdentityClass(packageName, className.appendClassName("Identity"));
+		
+		return id;
 	}
 
 	public DetailClass toDetailClass() {

@@ -18,6 +18,7 @@
 		<maven-dependency-plugin-version>2.10</maven-dependency-plugin-version>
 	</properties>
 	<build>
+		<finalName>jp.osdn.dddsupport.plugin-${release-version}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

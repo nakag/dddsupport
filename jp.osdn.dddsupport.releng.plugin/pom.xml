@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>jp.osdn.dddsupport.releng.plugin</groupId>
+	<artifactId>jp.osdn.dddsupport.releng.plugin</artifactId>
+
+	<packaging>eclipse-repository</packaging>
+
+	<parent>
+		<groupId>jp.osdn.dddsupport</groupId>
+		<artifactId>jp.osdn.dddsupport.releng</artifactId>
+		<version>0.2.0-SNAPSHOT</version>
+		<relativePath>../jp.osdn.dddsupport.releng</relativePath>
+	</parent>
+	<properties>
+		<antrun-version>1.8</antrun-version>
+		<release-version>0.2.0</release-version>
+		<maven-dependency-plugin-version>2.10</maven-dependency-plugin-version>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>${maven-dependency-plugin-version}</version>
+				<executions>
+					<execution>
+						<id>unpack</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>jp.osdn.dddsupport</groupId>
+									<artifactId>jp.osdn.dddsupport.plugin.feature</artifactId>
+									<type>jar</type>
+									<version>${release-version}-SNAPSHOT</version>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${project.build.directory}/repository/features/jp.osdn.dddsupport.plugin.feature_${release-version}.${buildQualifier}</outputDirectory>
+							<includes>*.xml</includes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>${antrun-version}</version>
+				<executions>
+					<execution>
+						<id>remove-incomplete-metadata</id>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<delete file="${project.build.directory}/repository/content.xml.xz" />
+								<delete file="${project.build.directory}/repository/content.jar" />
+								<delete file="${project.build.directory}/repository/artifacts.xml.xz" />
+								<delete file="${project.build.directory}/repository/artifacts.jar" />
+								<delete file="${project.build.directory}/repository/p2.index" />
+								<delete
+									file="${project.build.directory}/repository/features/jp.osdn.dddsupport.plugin.feature_${release-version}.${buildQualifier}.jar" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-repository-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>archive-repository</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>archive-repository</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

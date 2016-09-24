@@ -7,6 +7,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>../jp.osdn.dddsupport.basegenerator</module>
+		<module>../jp.osdn.dddsupport.quickclassgenerator</module>
 		<module>../jp.osdn.dddsupport.plugin.feature</module>
 		<module>../jp.osdn.dddsupport.releng.updatesite</module>
 		<module>../jp.osdn.dddsupport.plugin</module>

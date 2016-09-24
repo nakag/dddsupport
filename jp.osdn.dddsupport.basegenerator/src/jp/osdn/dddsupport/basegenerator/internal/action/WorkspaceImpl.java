@@ -31,6 +31,9 @@ public class WorkspaceImpl implements Workspace {
 
 	public WorkspaceImpl(ExecutionEvent event) {
 		baseClassInWorkspace = getUnit(event);
+		if (baseClassInWorkspace == null) {
+			throw new IllegalArgumentException("Selected Object is not Java Class.");
+		}
 		baseClassPackageInWorkspace = baseClassInWorkspace.getParent();
 	}
 
@@ -46,11 +49,17 @@ public class WorkspaceImpl implements Workspace {
 		ISelection selection = HandlerUtil.getCurrentSelection(event);
 		if (selection instanceof IStructuredSelection) {
 			IStructuredSelection selectionFromExplorer = (IStructuredSelection) selection;
-			unit = (ICompilationUnit) selectionFromExplorer.getFirstElement();
+			Object obj = selectionFromExplorer.getFirstElement();
+			if (obj instanceof ICompilationUnit) {
+				unit = (ICompilationUnit) obj;
+			}
 		}
 		if (selection instanceof ITextSelection) {
 			CompilationUnitEditor javaEditor = (CompilationUnitEditor) HandlerUtil.getActiveEditor(event);
-			unit = (ICompilationUnit) javaEditor.getViewPartInput();
+			Object obj = javaEditor.getViewPartInput();
+			if (obj instanceof ICompilationUnit) {
+				unit = (ICompilationUnit) javaEditor.getViewPartInput();
+			}
 		}
 		return unit;
 	}

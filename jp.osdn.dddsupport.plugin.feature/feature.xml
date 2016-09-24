@@ -2,7 +2,7 @@
 <feature
       id="jp.osdn.dddsupport.plugin.feature"
       label="DDD Support Plugin Feature"
-      version="0.2.0.qualifier"
+      version="0.3.0.qualifier"
       plugin="jp.osdn.dddsupport.plugin">
 
    <description url="https://osdn.jp/projects/dddsupport/simple/">

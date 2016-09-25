@@ -48,7 +48,7 @@ public class NewClassDialog extends Dialog {
 
 		Label label = new Label(container, SWT.NONE);
 		label.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
-		label.setText("ClassName:");
+		label.setText(Messages.NewClassDialog_0);
 
 		classNameText = new Text(container, SWT.BORDER | SWT.SINGLE);
 		classNameText.addModifyListener(new ModifyListener() {
@@ -71,7 +71,7 @@ public class NewClassDialog extends Dialog {
 		// TODO Auto-generated method stub
 		super.create();
 		getButton(OK).setEnabled(false);
-		getShell().setText("クラス作成");
+		getShell().setText(Messages.NewClassDialog_1);
 	}
 	
 	/**
@@ -94,7 +94,7 @@ public class NewClassDialog extends Dialog {
 
 	private DataBindingContext initDataBindings() {
 		IObservableValue classNameObserveWidget = SWTObservables.observeText(classNameText, SWT.Modify);
-		IObservableValue classNameObserveValue = PojoObservables.observeValue(newClass, "className");
+		IObservableValue classNameObserveValue = PojoObservables.observeValue(newClass, "className"); //$NON-NLS-1$
 		//
 		DataBindingContext bindingContext = new DataBindingContext();
 		//

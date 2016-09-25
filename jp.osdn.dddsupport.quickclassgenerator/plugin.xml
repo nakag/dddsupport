@@ -5,7 +5,7 @@
          point="org.eclipse.ui.commands">
       <command
             id="jp.osdn.dddsupport.quickclassgenerator.quickClassGenerateCommand"
-            name="クラス作成">
+            name="%command.name">
       </command>
    </extension>
    <extension

@@ -3,7 +3,11 @@
 We will develop the Eclipse Plugin to support the development of Domain Driven Design.
 Currently, it has published the following Eclipse Plugin.
 
+- Quick class create Plugin
 - DDD template create Plugin
+
+## Quick class create Plugin
+- Create a java class under package selected in the Package Explorer.
 
 ## DDD template create Plugin
 
@@ -21,7 +25,7 @@ Currently, it has published the following Eclipse Plugin.
 
 - java6 or later(java8 is recommended)
 
-- eclipse 3.4 or later(4.5 is recommended)
+- eclipse 3.4 or later(4.6 is recommended)
 
 ## Binary Download
 https://osdn.jp/projects/dddsupport/releases/
@@ -32,16 +36,25 @@ https://osdn.jp/projects/dddsupport/releases/
 1. Get source.
 git clone https://github.com/nakag/dddsupport.git
 
-2. Open plugin.xml and select Overview tab.
+2. execute command below.
+cd jp.osdn.dddsupport.releng
+mvn celan verify
 
-3. Export plugin by using Export Wizard.
 ```
 
 ## Installation
-1. Put jp.osdn.dddsupport.basegenerator_0.1.0.qualifier.jar into dropins directory.
-1. Run eclipse.
+1. Unzip jp.osdn.dddsupport.plugin-VERSION.zip into dropins directory.
+1. Restart eclipse.
 
 ## Usage
+### Quick class create Plugin
+
+1. Click on java package with Package explorer.
+2. Press alt + shift + F9. And enter a class name in dialog.
+3. Click OK button.
+
+### DDD template create Plugin
+
 1. Right click on Java Source(Package explorer or Java Editor).
 1. DDD Support->Create DDD Templates(or alt + shift + F8).
 
